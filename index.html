@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="system">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="生成式 AI 兴起后美国劳动力市场关键指标的交互式数据观察。">
+  <meta name="color-scheme" content="light dark">
+  <title>AI 时代的美国就业脉搏</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2309141f'/%3E%3Cpath d='M11 43l12-13 10 7 20-22' fill='none' stroke='%235eead4' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='53' cy='15' r='5' fill='%23ffb454'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Employment Pulse home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>EMPLOYMENT<span class="brand-accent">/PULSE</span></span>
+    </a>
+    <div class="controls">
+      <button class="control-btn lang-switch" id="langToggle" type="button" aria-label="Switch language"><span class="lang-active">中</span><span>EN</span></button>
+      <button class="control-btn icon-btn" id="themeToggle" type="button" aria-label="切换至暗色模式">
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8 8 0 0 1 8.8 4 8.2 8.2 0 1 0 20 15.2Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="pageTitle">
+      <div class="eyebrow"><span class="pulse-dot"></span><span data-i18n="eyebrow">数据观察 · 2022.11—2026.08</span></div>
+      <div class="intro-grid">
+        <div>
+          <h1 id="pageTitle" data-i18n="title">AI 时代的<br><em>美国就业脉搏</em></h1>
+        </div>
+        <div class="intro-copy">
+          <p data-i18n="dek">生成式 AI 爆发之后，美国企业在“大量裁人”，还是在“减少招人”？四条劳动力市场曲线给出了一幅更细腻的图景。</p>
+          <div class="thesis"><span data-i18n="thesisLabel">核心观察</span><strong data-i18n="thesis">招聘需求显著降温，裁员率却几乎没有变化。</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="overview-panel" aria-labelledby="overviewTitle">
+      <div class="panel-head">
+        <div>
+          <span class="section-no">01 / 05</span>
+          <h2 id="overviewTitle" data-i18n="overviewTitle">四项指标总览</h2>
+        </div>
+        <p data-i18n="overviewHint">移动鼠标或触摸图表，查看每月数据</p>
+      </div>
+      <div class="legend" id="mainLegend"></div>
+      <div class="chart chart-large" id="overviewChart" role="img" aria-label="四项美国就业指标对比折线图"></div>
+      <div class="source-row">
+        <span data-i18n="unit">单位：百分比（%）</span>
+        <span data-i18n="source">来源：U.S. Bureau of Labor Statistics / FRED</span>
+      </div>
+    </section>
+
+    <section class="reading" aria-label="Key findings">
+      <div class="reading-kicker" data-i18n="readingKicker">从数字到信号</div>
+      <p data-i18n="readingText">从 2022 年 11 月至今，职位空缺率和雇佣率分别下降约 <strong>2.0</strong> 与 <strong>0.8</strong> 个百分点；失业率温和上升，而裁员率仍稳定在低位。企业更像是关小了入口，而非大规模打开出口。</p>
+    </section>
+
+    <section class="details" aria-labelledby="detailsTitle">
+      <div class="details-head">
+        <span class="eyebrow-line"></span>
+        <h2 id="detailsTitle" data-i18n="detailsTitle">拆开每一条曲线</h2>
+      </div>
+      <div class="chart-grid" id="detailGrid"></div>
+    </section>
+
+    <section class="caveat">
+      <span class="caveat-index">NOTE</span>
+      <div>
+        <h2 data-i18n="caveatTitle">相关，不等于因果</h2>
+        <p data-i18n="caveatText">这些数据与“企业先减少招聘，而非立即大规模裁员”的机制相容，但不能单独证明 AI 是变化的原因。利率上升、疫情后招聘热潮正常化及经济周期同样会影响劳动力需求。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><span class="footer-mark">E/P</span><span data-i18n="footerText">美国劳动力市场数据观察</span></div>
+    <p data-i18n="footerNote">JOLTS 指标为 Total Nonfarm、月度、季节调整；失业率为 U-3。</p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
