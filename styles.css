@@ -14,6 +14,8 @@
   --orange: #e77922;
   --blue: #4275e9;
   --pink: #d84e87;
+  --violet: #7657d8;
+  --gold: #b9850f;
   --shadow: 0 28px 80px rgba(28,48,58,.08);
 }
 
@@ -31,6 +33,8 @@ html[data-theme="dark"] {
   --orange: #ffb454;
   --blue: #82a7ff;
   --pink: #ff85b3;
+  --violet: #b9a2ff;
+  --gold: #ffd166;
   --shadow: 0 28px 90px rgba(0,0,0,.28);
 }
 
@@ -91,14 +95,21 @@ h1 em { font-style: normal; color: var(--teal); }
 .thesis strong { font-size: 1.02rem; line-height: 1.6; font-weight: 600; }
 
 .overview-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); backdrop-filter: blur(20px); padding: clamp(24px, 3vw, 46px); }
+.overview-panel + .overview-panel { margin-top: 24px; }
 .panel-head { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; margin-bottom: 28px; }
 .panel-head h2, .details-head h2 { font-size: clamp(1.7rem, 3vw, 2.7rem); letter-spacing: -.04em; margin: 8px 0 0; font-weight: 600; }
 .panel-head p { color: var(--muted); margin: 0; font-size: .84rem; }
 .section-no { font: 500 .7rem/1 DM Mono, monospace; letter-spacing: .1em; color: var(--teal); }
-.legend { display: flex; gap: 12px 26px; flex-wrap: wrap; border-top: 1px solid var(--line); padding: 22px 0 6px; }
-.legend-item { border: 0; background: none; padding: 0; color: var(--muted); display: flex; gap: 8px; align-items: center; font-size: .8rem; cursor: pointer; }
-.legend-item::before { content: ""; width: 18px; height: 3px; background: var(--series-color); border-radius: 3px; }
-.legend-item.is-muted { opacity: .3; }
+.legend { display: flex; gap: 10px; flex-wrap: wrap; border-top: 1px solid var(--line); padding: 18px 0 8px; }
+.legend-item { border: 1px solid var(--line); background: color-mix(in srgb, var(--surface-solid) 55%, transparent); padding: 9px 11px; color: var(--muted); display: flex; gap: 8px; align-items: center; border-radius: 3px; font-size: .78rem; cursor: pointer; transition: opacity .2s, background .2s, border-color .2s; }
+.legend-item:hover { border-color: color-mix(in srgb, var(--series-color) 48%, var(--line)); background: var(--surface-solid); }
+.legend-check { width: 16px; height: 16px; border: 1px solid var(--series-color); background: var(--series-color); border-radius: 3px; display: grid; place-items: center; flex: 0 0 auto; }
+.legend-check i { width: 7px; height: 4px; border-left: 1.5px solid var(--surface-solid); border-bottom: 1.5px solid var(--surface-solid); transform: rotate(-45deg) translateY(-1px); }
+.legend-name { white-space: nowrap; }
+.legend-item strong { color: var(--series-color); font: 500 .7rem/1 DM Mono, monospace; padding-left: 2px; }
+.legend-item.is-muted { opacity: .42; background: transparent; }
+.legend-item.is-muted .legend-check { background: transparent; border-color: var(--faint); }
+.legend-item.is-muted .legend-check i { opacity: 0; }
 .chart { position: relative; width: 100%; min-height: 250px; }
 .chart-large { height: min(48vw, 540px); min-height: 360px; }
 .chart svg { width: 100%; height: 100%; overflow: visible; display: block; }
@@ -137,6 +148,8 @@ h1 em { font-style: normal; color: var(--teal); }
 .card-stat { text-align: right; flex: 0 0 auto; }
 .card-stat strong { font: 500 2rem/1 DM Mono, monospace; letter-spacing: -.06em; }
 .card-stat span { display: block; color: var(--muted); font-size: .7rem; margin-top: 8px; }
+.card-stat .card-change { margin-top: 6px; white-space: nowrap; }
+.card-change b { color: var(--series-color); font: 500 .72rem/1 DM Mono, monospace; }
 .mini-chart { height: 250px; }
 .card-note { border-top: 1px solid var(--line); padding-top: 16px; margin: 5px 0 0; color: var(--muted); font-size: .83rem; line-height: 1.65; }
 .caveat { display: grid; grid-template-columns: .35fr 1.65fr; gap: 40px; border-top: 1px solid var(--line); padding: 52px 0 78px; }
@@ -169,6 +182,8 @@ footer p { text-align: right; }
   .chart-large { min-height: 330px; }
   .source-row { flex-direction: column; gap: 6px; }
   .legend { gap: 12px 18px; }
+  .legend-item { width: calc(50% - 9px); justify-content: flex-start; }
+  .legend-item strong { margin-left: auto; }
   .reading p { font-size: 1.7rem; }
   .chart-card { padding: 26px 16px; }
   .card-head { align-items: flex-start; }
