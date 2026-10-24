@@ -2,6 +2,11 @@ let lang = localStorage.getItem("employment-lang") || (navigator.language.starts
 const hiddenByChart = new Map(pageConfig.overviews.map(chart => [chart.chartId, new Set()]));
 const tooltip = document.getElementById("tooltip");
 
+function translated(key, fallback = "") {
+  const value = copy[lang]?.[key] ?? copy.zh?.[key];
+  return typeof value === "string" ? value : fallback;
+}
+
 function latestValue(values) { for (let i=values.length-1;i>=0;i--) if (values[i] != null) return values[i]; return null; }
 function changePercent(key) {
   const start = raw[key][0], end = latestValue(raw[key]);
@@ -35,11 +40,11 @@ function updateThemeLabel() {
 function applyLanguage() {
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   document.title = pageConfig.documentTitle[lang];
-  document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = copy[lang][el.dataset.i18n]; });
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.innerHTML = translated(el.dataset.i18n, el.innerHTML); });
   const spans = document.querySelectorAll("#langToggle span");
   spans[0].classList.toggle("lang-active", lang === "zh"); spans[1].classList.toggle("lang-active", lang === "en");
   document.getElementById("langToggle").setAttribute("aria-label", lang === "zh" ? "Switch to English" : "切换至中文");
-  pageConfig.overviews.forEach(chart => document.getElementById(chart.chartId).setAttribute("aria-label", copy[lang][chart.ariaKey]));
+  pageConfig.overviews.forEach(chart => document.getElementById(chart.chartId).setAttribute("aria-label", translated(chart.ariaKey, document.getElementById(chart.chartId).getAttribute("aria-label") || "")));
   document.querySelector(".page-nav").setAttribute("aria-label", lang === "zh" ? "主题导航" : "Topics");
   tooltip.classList.remove("is-visible");
   updateThemeLabel(); renderAll();
@@ -47,7 +52,7 @@ function applyLanguage() {
 
 function renderLegend(containerId, metaList, hiddenSet, chartId, chartOptions) {
   const container = document.getElementById(containerId);
-  container.innerHTML = metaList.map(s => `<button class="legend-item ${hiddenSet.has(s.key)?"is-muted":""}" style="--series-color:${s.color}" data-key="${s.key}" type="button" aria-pressed="${!hiddenSet.has(s.key)}"><span class="legend-check" aria-hidden="true"><i></i></span><span class="legend-name">${copy[lang][s.key]}</span><strong>${formatChange(s.key)}</strong></button>`).join("");
+  container.innerHTML = metaList.map(s => `<button class="legend-item ${hiddenSet.has(s.key)?"is-muted":""}" style="--series-color:${s.color}" data-key="${s.key}" type="button" aria-pressed="${!hiddenSet.has(s.key)}"><span class="legend-check" aria-hidden="true"><i></i></span><span class="legend-name">${translated(s.key, s.key)}</span><strong>${formatChange(s.key)}</strong></button>`).join("");
   container.querySelectorAll(".legend-item").forEach(btn => btn.addEventListener("click", () => {
     const key = btn.dataset.key;
     hiddenSet.has(key) ? hiddenSet.delete(key) : hiddenSet.add(key);
@@ -59,10 +64,10 @@ function renderLegend(containerId, metaList, hiddenSet, chartId, chartOptions) {
 function buildCards() {
   document.getElementById("detailGrid").innerHTML = allSeriesMeta.filter(s => s.card !== false).map(s => `
     <article class="chart-card" style="--series-color:${s.color}">
-      <div class="card-head"><div><div class="card-title"><i></i><h3>${copy[lang][s.key]}</h3></div><div class="series-code">${s.source} · ${s.code}</div></div>
-      <div class="card-stat"><strong>${formatValue(s.key, latestValue(raw[s.key]))}</strong>${copy[lang].units?.[s.key] ? `<span class="card-unit">${copy[lang].units[s.key]}</span>` : ""}<span>${copy[lang].latest} · ${s.date}</span><span class="card-change">${copy[lang].sinceBaseline} <b>${formatChange(s.key)}</b></span></div></div>
-      <div class="chart mini-chart" id="chart-${s.key}" role="img" aria-label="${copy[lang][s.key]}"></div>
-      <p class="card-note">${copy[lang].notes[s.key]}</p>
+      <div class="card-head"><div><div class="card-title"><i></i><h3>${translated(s.key, s.key)}</h3></div><div class="series-code">${s.source} · ${s.code}</div></div>
+      <div class="card-stat"><strong>${formatValue(s.key, latestValue(raw[s.key]))}</strong>${copy[lang].units?.[s.key] ? `<span class="card-unit">${copy[lang].units[s.key]}</span>` : ""}<span>${translated("latest")} · ${s.date}</span><span class="card-change">${translated("sinceBaseline")} <b>${formatChange(s.key)}</b></span></div></div>
+      <div class="chart mini-chart" id="chart-${s.key}" role="img" aria-label="${translated(s.key, s.key)}"></div>
+      <p class="card-note">${copy[lang].notes?.[s.key] ?? copy.zh?.notes?.[s.key] ?? ""}</p>
     </article>`).join("");
 }
 
@@ -125,7 +130,7 @@ function renderChart(container, metaList, opts={}) {
     const rect=svg.getBoundingClientRect(), cx=(e.clientX-rect.left)*(width/rect.width), i=Math.max(0,Math.min(labels.length-1,Math.round(((cx-margin.left)/iw)*(labels.length-1))));
     hover.setAttribute("x1",x(i)); hover.setAttribute("x2",x(i)); hover.setAttribute("visibility","visible");
     dotGroups.forEach(g=>g.querySelectorAll("circle").forEach(c=>c.style.opacity=+c.dataset.i===i?1:0));
-    const rows=metaList.map(s=>{const v=(opts.values || raw)[s.key][i];return `<div class="tooltip-row"><span><i class="tooltip-swatch" style="--c:${s.color}"></i>${copy[lang][s.key]}</span><strong>${opts.values ? (v==null ? "—" : v.toFixed(1)) : formatValue(s.key, v) + (copy[lang].valueSuffix?.[s.key] || "")}</strong></div>`}).join("");
+    const rows=metaList.map(s=>{const v=(opts.values || raw)[s.key][i];return `<div class="tooltip-row"><span><i class="tooltip-swatch" style="--c:${s.color}"></i>${translated(s.key, s.key)}</span><strong>${opts.values ? (v==null ? "—" : v.toFixed(1)) : formatValue(s.key, v) + (copy[lang].valueSuffix?.[s.key] || "")}</strong></div>`}).join("");
     tooltip.innerHTML=`<div class="tooltip-date">${axisLabel(labels[i])}</div>${rows}`; tooltip.classList.add("is-visible");
     let left=e.clientX+12, top=e.clientY; const tw=tooltip.offsetWidth; if(left+tw>innerWidth-8) left=e.clientX-tw-12; tooltip.style.left=`${left}px`; tooltip.style.top=`${Math.max(50,Math.min(innerHeight-50,top))}px`;
   }
