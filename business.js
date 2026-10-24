@@ -1,4 +1,4 @@
-// Verified SEC / BEA / BLS snapshot: 2026-10-24. Formulas, scopes and source files: DATA_SOURCES.md.
+// Verified SEC / BEA / BLS snapshot: 2026-10-24. Formulas and sources: DATA_SOURCES.md.
 const quarters = ["2022 Q4", "2023 Q1", "2023 Q2", "2023 Q3", "2023 Q4", "2024 Q1", "2024 Q2", "2024 Q3", "2024 Q4", "2025 Q1", "2025 Q2", "2025 Q3", "2025 Q4", "2026 Q1", "2026 Q2"];
 const months = quarters;
 const raw = {
@@ -37,7 +37,7 @@ const raw = {
     3.7991462499999997
   ],
   "usRealProfit": [
-    100.0,
+    100,
     101.00937113098225,
     101.0719308364741,
     101.3521222148561,
@@ -52,23 +52,6 @@ const raw = {
     110.41340802229678,
     112.76537071057635,
     117.32082365957967
-  ],
-  "hires": [
-    4.2,
-    4.083333333333333,
-    3.975,
-    3.858333333333333,
-    3.7583333333333333,
-    3.6666666666666665,
-    3.5666666666666664,
-    3.4916666666666667,
-    3.4166666666666665,
-    3.358333333333333,
-    3.3499999999999996,
-    3.3249999999999997,
-    3.3166666666666664,
-    3.3166666666666664,
-    3.3000000000000003
   ],
   "productivity": [
     109.7515,
@@ -86,57 +69,6 @@ const raw = {
     117.9515,
     118.80324999999999,
     119.46124999999999
-  ],
-  "retailProfit": [
-    291.626,
-    295.744,
-    297.695,
-    305.554,
-    318.3655,
-    326.42375,
-    332.79025,
-    339.7235,
-    342.1325,
-    335.35375,
-    329.30100000000004,
-    317.3985,
-    308.15775,
-    311.76075000000003,
-    312.8185
-  ],
-  "retailHires": [
-    5.05,
-    4.841666666666667,
-    4.816666666666666,
-    4.7,
-    4.541666666666667,
-    4.341666666666667,
-    4.208333333333333,
-    4.041666666666667,
-    3.9583333333333335,
-    3.983333333333333,
-    3.85,
-    3.8000000000000003,
-    3.75,
-    3.7583333333333333,
-    3.8833333333333333
-  ],
-  "transportProfit": [
-    104.2945,
-    108.52,
-    105.4935,
-    99.0705,
-    99.1005,
-    99.1795,
-    97.61025000000001,
-    100.33,
-    102.00575,
-    97.7825,
-    90.855,
-    84.50825,
-    78.577,
-    78.55799999999999,
-    78.73349999999999
   ],
   "output": [
     114.429,
@@ -176,8 +108,8 @@ const raw = {
 const allSeriesMeta = [
   {
     "key": "aiProfit",
-    "code": "SEC · NVDA / MSFT / GOOGL / AMZN",
-    "source": "2026-10-24",
+    "code": "NVDA / MSFT / GOOGL / AMZN",
+    "source": "SEC FILINGS",
     "color": "var(--teal)",
     "card": true,
     "date": "2026 Q2",
@@ -186,8 +118,8 @@ const allSeriesMeta = [
   },
   {
     "key": "usProfit",
-    "code": "BEA · A445RC1Q027SBEA",
-    "source": "2026-10-24",
+    "code": "A445RC1Q027SBEA",
+    "source": "BEA / FRED",
     "color": "var(--orange)",
     "card": true,
     "date": "2026 Q2",
@@ -196,58 +128,18 @@ const allSeriesMeta = [
   },
   {
     "key": "usRealProfit",
-    "code": "BEA · A445 / GDPDEF",
-    "source": "2026-10-24",
+    "code": "A445 / GDPDEF",
+    "source": "BEA / FRED",
     "color": "var(--gold)",
     "card": false,
     "date": "2026 Q2",
     "decimals": 1,
     "suffix": ""
-  },
-  {
-    "key": "hires",
-    "code": "BLS · JTSHIR",
-    "source": "2026-10-24",
-    "color": "var(--pink)",
-    "card": true,
-    "date": "2026 Q2",
-    "decimals": 2,
-    "suffix": "%"
   },
   {
     "key": "productivity",
-    "code": "BLS · OPHNFB",
-    "source": "2026-10-24",
-    "color": "var(--blue)",
-    "card": true,
-    "date": "2026 Q2",
-    "decimals": 1,
-    "suffix": ""
-  },
-  {
-    "key": "retailProfit",
-    "code": "BEA · N415RC1Q027SBEA",
-    "source": "2026-10-24",
-    "color": "var(--violet)",
-    "card": true,
-    "date": "2026 Q2",
-    "decimals": 1,
-    "suffix": ""
-  },
-  {
-    "key": "retailHires",
-    "code": "BLS · JTS4400HIR",
-    "source": "2026-10-24",
-    "color": "var(--gold)",
-    "card": false,
-    "date": "2026 Q2",
-    "decimals": 2,
-    "suffix": "%"
-  },
-  {
-    "key": "transportProfit",
-    "code": "BEA · N417RC1Q027SBEA",
-    "source": "2026-10-24",
+    "code": "OPHNFB",
+    "source": "BLS / FRED",
     "color": "var(--blue)",
     "card": true,
     "date": "2026 Q2",
@@ -256,8 +148,8 @@ const allSeriesMeta = [
   },
   {
     "key": "output",
-    "code": "BLS · OUTNFB",
-    "source": "2026-10-24",
+    "code": "OUTNFB",
+    "source": "BLS / FRED",
     "color": "var(--teal)",
     "card": false,
     "date": "2026 Q2",
@@ -266,25 +158,22 @@ const allSeriesMeta = [
   },
   {
     "key": "hours",
-    "code": "BLS · HOANBS",
-    "source": "2026-10-24",
+    "code": "HOANBS",
+    "source": "BLS / FRED",
     "color": "var(--orange)",
     "card": false,
     "date": "2026 Q2",
     "decimals": 1,
     "suffix": ""
   }
-].map(meta => {
-  const [provider, code] = meta.code.split(" · ");
-  return { ...meta, source: provider === "SEC" ? "SEC FILINGS" : `${provider} / FRED`, code, labels: quarters };
-});
+].map(meta => ({ ...meta, labels: quarters }));
 const copy = {
   "zh": {
     "navEmployment": "就业",
     "navBusiness": "企业",
-    "eyebrow": "盈利 × 招聘 × 效率 · 2022 Q4—2026 Q2",
-    "title": "整体利润增，<br><em>招聘仍走弱。</em>",
-    "dek": "AI 产业链样本盈利增幅领先，但其它行业表现分化，尚不能把招聘减弱统一归因为 AI 替代。",
+    "eyebrow": "盈利 × 效率 · 2022 Q4—2026 Q2",
+    "title": "利润增长，<br><em>效率同步提升。</em>",
+    "dek": "AI 产业链样本盈利增幅领先，美国整体利润与生产率也高于起点。",
     "overviewTitle": "AI 产业链样本与美国整体",
     "overviewHint": "比较各自起点以来的变化，不把全球公司利润从美国总量中相减",
     "unit": "指数：2022 Q4 = 100 · 利润采用近一年窗口",
@@ -299,75 +188,50 @@ const copy = {
     "periodHead": "最新财季结束日",
     "companyUnit": "单位：十亿美元；TTM 为近四个财季之和。样本采用总额加权，不是四家公司增幅的简单平均。",
     "companyPeriod": "NVIDIA 财季按最近自然季度归组，通常滞后约一个月；其 2026 Q2 组包含截至 7 月 26 日的财季。其他三家截至 6 月 30 日。",
-    "macroTitle": "整体利润增长，招聘并未同步",
-    "macroHint": "在同一时间窗内比较利润、招聘率和每小时产出",
-    "macroUnit": "指数：2022 Q4 = 100 · 利润、生产率为近四季均值，招聘为近 12 个月均值",
-    "macroSource": "来源：BEA、BLS / FRED",
-    "macroNote": "利润覆盖境内公司制企业，雇佣率覆盖全部非农雇主，生产率为非农商业部门；它们是宏观同期趋势，不是同一批企业的因果比较。",
-    "industryTitle": "其它行业没有一致的盈利改善",
-    "industryHint": "观察零售与运输仓储，避免仅从科技龙头推断全美",
-    "industryUnit": "指数：2022 Q4 = 100 · 行业是观察样本，不是严格“剔除 AI”后的其余美国企业",
-    "industrySource": "来源：BEA 行业利润、BLS 零售招聘 / FRED",
-    "industryNote": "零售包含电商等业务，与亚马逊集团存在业务交叉；运输仓储也可能使用 AI。行业利润含 IVA、不含 CCAdj，与整体利润定义有差异。不能将这些行业当作“未使用 AI”的对照组。",
     "efficiencyTitle": "实际产出跑赢工时，效率确有提升",
     "efficiencyHint": "每小时产出上升是提效线索，不是 AI 贡献的直接测量",
     "efficiencyUnit": "指数：2022 Q4 = 100 · 非农商业部门 · 近四季均值",
     "efficiencySource": "来源：BLS 劳动生产率、实际产出与工时 / FRED",
     "readingKicker": "从数字到信号",
     "detailsTitle": "核对每一项指标",
-    "footerText": "美国企业盈利与招聘观察",
+    "footerText": "美国企业盈利与效率观察",
     "footerNote": "静态数据核查：2026.10.24 · 同期比较截至 2026 Q2 · 结论不作 AI 因果估计",
     "latest": "窗口截至",
     "sinceBaseline": "较起点",
     "overviewAria": "AI产业链样本经营利润与美国境内企业利润的起点归一化趋势",
-    "macroAria": "美国整体利润、雇佣率与生产率的趋势比较",
-    "industryAria": "零售利润、零售招聘和运输仓储利润的趋势比较",
     "efficiencyAria": "非农商业实际产出、劳动工时与每小时产出的趋势比较",
     "aiProfit": "AI 产业链样本利润",
     "usProfit": "美国整体利润",
     "usRealProfit": "整体利润：价格调整后",
-    "hires": "美国整体雇佣率",
     "productivity": "每小时实际产出",
-    "retailProfit": "零售业利润",
-    "retailHires": "零售业雇佣率",
-    "transportProfit": "运输仓储业利润",
     "output": "实际产出",
     "hours": "总工时",
     "units": {
       "aiProfit": "十亿美元 · TTM",
       "usProfit": "万亿美元 · 近四季年率均值",
-      "hires": "近 12 个月均值",
-      "productivity": "2017 = 100 · 近四季均值",
-      "retailProfit": "十亿美元 · 近四季年率均值",
-      "transportProfit": "十亿美元 · 近四季年率均值"
+      "productivity": "2017 = 100 · 近四季均值"
     },
     "valueSuffix": {
       "aiProfit": " 十亿美元",
-      "usProfit": " 万亿美元",
-      "retailProfit": " 十亿美元",
-      "transportProfit": " 十亿美元"
+      "usProfit": " 万亿美元"
     },
     "notes": {
       "aiProfit": "NVIDIA、微软、Alphabet、亚马逊的全球 GAAP 经营利润，近四个财季求和后合计；含广告、零售、游戏等非 AI 业务，亦受低基数影响。",
       "usProfit": "美国境内公司制企业税前利润（含 IVA / CCAdj）的近四季均值，仍是季调年率；含 AI 产业链公司在美活动，不能视为“剔除 AI”。",
-      "hires": "全美非农雇佣率的近 12 个月算术均值；雇佣率衡量人员流入，不等于就业人数、岗位净增长或 AI 替代人数。",
       "productivity": "非农商业部门每小时实际产出的近四季均值；包括技术、资本投入、组织与人员结构变化等因素，不单独测量 AI。",
-      "retailProfit": "零售行业税前利润（含 IVA，不含 CCAdj）的近四季均值，金额为年率；名义改善不一定代表扣除价格后的增长。",
-      "retailHires": "零售行业季调雇佣率的近 12 个月算术均值。",
-      "transportProfit": "运输与仓储行业税前利润（含 IVA，不含 CCAdj）的近四季均值；不含公用事业，也不为其配上范围更宽的招聘序列。",
       "usRealProfit": "逐季将整体利润除以 GDP 平减指数，再取近四季均值并归一；为价格调整近似，不是官方实际利润。",
       "output": "非农商业部门实际产出的近四季均值。",
       "hours": "非农商业部门总工时的近四季均值。"
     },
     "companyRows": "<tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1045810\" target=\"_blank\" rel=\"noopener\">NVIDIA</a><small>芯片 / 加速计算</small></th><td>4.2</td><td>197.6</td><td>+4,577.5%</td><td>2026-07-26</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=789019\" target=\"_blank\" rel=\"noopener\">Microsoft</a><small>云平台 / 企业软件</small></th><td>82.8</td><td>155.2</td><td>+87.5%</td><td>2026-06-30</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1652044\" target=\"_blank\" rel=\"noopener\">Alphabet</a><small>云平台 / 模型与广告</small></th><td>74.8</td><td>147.6</td><td>+97.3%</td><td>2026-06-30</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1018724\" target=\"_blank\" rel=\"noopener\">Amazon</a><small>AWS 云平台 / 电商</small></th><td>12.2</td><td>93.7</td><td>+665.1%</td><td>2026-06-30</td></tr>",
-    "readingText": "<li><span class=\"evidence-label\">已观察到</span><strong>AI 产业链样本盈利增长更快。</strong>四家公司 TTM 经营利润合计从 1,741 亿增至 5,942 亿美元，增长 241.2%；美国整体近四季平均利润增长 30.4%，价格调整后约增 17.3%。这是各自口径内的趋势比较，不代表样本贡献了多少美国利润，也不是纯 AI 收入或利润的测量。</li><li><span class=\"evidence-label\">已观察到</span><strong>整体利润没有收缩，招聘率却下降。</strong>同期全美近 12 个月平均雇佣率从 4.20% 降至 3.30%，下降 0.90 个百分点（相对下降 21.4%）。利润与招聘背离，削弱了“全国性利润收缩导致少招人”的解释；但总量增长仍可能掩盖部分企业经营恶化。</li><li><span class=\"evidence-label\">局部支持</span><strong>零售业出现利润小涨、招聘减少。</strong>零售利润近四季均值从 2,916 亿增至 3,128 亿美元，名义增长 7.3%；平均雇佣率从 5.05% 降至 3.88%，相对下降 23.1%。这符合部分提效机制，但同期整体价格水平上升约 11.1%，不能据此排除实际利润压力。</li><li><span class=\"evidence-label\">行业反例</span><strong>运输仓储业利润仍在收缩。</strong>其利润近四季均值下降 24.5%，从 1,043 亿降至 787 亿美元。AI 基建公司的高增长不能外推为其它行业已普遍受益；零售与运输也只是两个行业观察，不是严格剔除 AI 的全美剩余企业。</li><li><span class=\"evidence-label\">提效线索</span><strong>产出增长明显快于工时。</strong>非农商业实际产出近四季均值增长 10.4%，总工时仅增 1.4%，每小时实际产出增长 8.8%。这支持生产效率提高的现象，但资本深化、传统自动化、组织调整和人员结构也可能解释一部分变化。</li><li><span class=\"evidence-label\">微观实证</span><strong>AI 能提高岗位效率，不等于必然减少岗位。</strong><a href=\"https://www.nber.org/papers/w31161\" target=\"_blank\" rel=\"noopener\">Generative AI at Work（2023 年工作论文）</a>研究了 5,179 名客服人员，发现引入生成式 AI 助手后，每小时解决问题数量平均提高 14%，员工留任率也改善。这支持 AI 确有提效机制，但不是全美招聘下降或利润增长中 AI 贡献的估计。</li><li><span class=\"evidence-label\">尚待归因</span><strong>不能把少招人直接换算成 AI 替代。</strong>现有证据支持“整体利润增长、招聘转弱、效率提高同时存在”，尚不足以确认 AI 是主因。识别替代与提效，需要企业或岗位层面的 AI 采用时间、招聘和工时、产出及工资数据，并控制需求、利率和疫情后招聘正常化。</li>"
+    "readingText": "<li><span class=\"evidence-label\">已观察到</span><strong>AI 产业链样本盈利增长更快。</strong>四家公司 TTM 经营利润合计从 1,741 亿增至 5,942 亿美元，增长 241.2%；美国整体近四季平均利润增长 30.4%，价格调整后约增 17.3%。这是各自口径内的趋势比较，不代表样本贡献了多少美国利润，也不是纯 AI 收入或利润的测量。</li><li><span class=\"evidence-label\">提效线索</span><strong>产出增长明显快于工时。</strong>非农商业实际产出近四季均值增长 10.4%，总工时仅增 1.4%，每小时实际产出增长 8.8%。这支持生产效率提高的现象，但资本深化、传统自动化、组织调整和人员结构也可能解释一部分变化。</li><li><span class=\"evidence-label\">微观实证</span><strong>AI 能提高岗位效率，不等于必然减少岗位。</strong><a href=\"https://www.nber.org/papers/w31161\" target=\"_blank\" rel=\"noopener\">Generative AI at Work（2023 年工作论文）</a>研究了 5,179 名客服人员，发现引入生成式 AI 助手后，每小时解决问题数量平均提高 14%，员工留任率也改善。这支持 AI 确有提效机制，但不是宏观利润增长中 AI 贡献的估计。</li><li><span class=\"evidence-label\">尚待归因</span><strong>利润与效率提升，尚不能单独归因于 AI。</strong>整体利润和生产率增长是已观察到的现象，但不同企业可能表现分化；识别 AI 的贡献仍需企业层面的采用时间、产出、工时、成本与合适对照，并控制需求、利率及资本投入变化。</li>"
   },
   "en": {
     "navEmployment": "Employment",
     "navBusiness": "Business",
-    "eyebrow": "PROFITS × HIRING × EFFICIENCY · Q4 2022—Q2 2026",
-    "title": "Profits grow.<br><em>Hiring weakens.</em>",
-    "dek": "AI supply-chain companies lead profit growth, but other industries diverge; weaker hiring cannot yet be attributed broadly to AI replacement.",
+    "eyebrow": "PROFITS × EFFICIENCY · Q4 2022—Q2 2026",
+    "title": "Profits grow.<br><em>Efficiency rises.</em>",
+    "dek": "AI supply-chain sample profits lead growth; U.S. overall profits and productivity are also above their baseline.",
     "overviewTitle": "AI supply chain and the U.S. overall",
     "overviewHint": "Compare changes from each baseline; do not subtract global company profits from U.S. totals",
     "unit": "Index: Q4 2022 = 100 · trailing-year profit windows",
@@ -382,75 +246,47 @@ const copy = {
     "periodHead": "Latest fiscal period end",
     "companyUnit": "Billion USD. TTM sums four fiscal quarters. The sample sums dollars, rather than averaging company growth rates.",
     "companyPeriod": "NVIDIA fiscal quarters map to the nearest calendar quarter, usually about one month later; its Q2 2026 group ends July 26. The other three end June 30.",
-    "macroTitle": "Profits and hiring have separated",
-    "macroHint": "Compare profits, hires and output per hour in matched trailing windows",
-    "macroUnit": "Index: Q4 2022 = 100 · 4-quarter means; hires use 12-month means",
-    "macroSource": "Source: BEA, BLS / FRED",
-    "macroNote": "Profits cover domestic corporations, hires cover all nonfarm employers, and productivity covers nonfarm business. These are concurrent macro trends, not a causal comparison of identical firms.",
-    "industryTitle": "Other industries do not improve uniformly",
-    "industryHint": "Retail and transportation offer evidence beyond the tech leaders",
-    "industryUnit": "Index: Q4 2022 = 100 · industry observations, not an exact U.S. ex-AI residual",
-    "industrySource": "Source: BEA industry profits, BLS retail hires / FRED",
-    "industryNote": "Retail includes e-commerce and overlaps with Amazon’s business; transportation can also use AI. Industry profits include IVA but not CCAdj, unlike the aggregate series. These industries are not an untreated, non-AI control group.",
     "efficiencyTitle": "Real output outpaces hours worked",
     "efficiencyHint": "Rising output per hour is an efficiency signal, not a direct estimate of AI’s contribution",
     "efficiencyUnit": "Index: Q4 2022 = 100 · nonfarm business · 4-quarter means",
     "efficiencySource": "Source: BLS productivity, real output and hours / FRED",
     "readingKicker": "FROM NUMBERS TO SIGNAL",
     "detailsTitle": "Check each indicator",
-    "footerText": "U.S. profits and hiring observation",
+    "footerText": "U.S. profits and efficiency observation",
     "footerNote": "Checked Oct 24, 2026 · matched windows through Q2 2026 · no causal AI estimate",
     "latest": "Window ends",
     "sinceBaseline": "vs baseline",
     "overviewAria": "Rebased AI supply-chain sample operating profits and U.S. domestic corporate profits",
-    "macroAria": "U.S. corporate profits, hiring rate and productivity trends",
-    "industryAria": "Retail profits and hiring compared with transportation profits",
     "efficiencyAria": "Nonfarm business real output, hours worked and output per hour",
     "aiProfit": "AI supply-chain sample profits",
     "usProfit": "U.S. overall profits",
     "usRealProfit": "U.S. price-adjusted profits",
-    "hires": "U.S. hires rate",
     "productivity": "Real output per hour",
-    "retailProfit": "Retail profits",
-    "retailHires": "Retail hires rate",
-    "transportProfit": "Transportation profits",
     "output": "Real output",
     "hours": "Total hours worked",
     "units": {
       "aiProfit": "Billion USD · TTM",
       "usProfit": "Trillion USD · 4Q mean SAAR",
-      "hires": "12-month mean",
-      "productivity": "2017 = 100 · 4Q mean",
-      "retailProfit": "Billion USD · 4Q mean SAAR",
-      "transportProfit": "Billion USD · 4Q mean SAAR"
+      "productivity": "2017 = 100 · 4Q mean"
     },
     "valueSuffix": {
       "aiProfit": " bn USD",
-      "usProfit": " tn USD",
-      "retailProfit": " bn USD",
-      "transportProfit": " bn USD"
+      "usProfit": " tn USD"
     },
     "notes": {
       "aiProfit": "Sum of NVIDIA, Microsoft, Alphabet and Amazon worldwide GAAP operating income over four fiscal quarters. Includes non-AI businesses and low-base effects.",
       "usProfit": "Four-quarter mean of domestic corporate before-tax profits with IVA / CCAdj, still at SAAR. Includes AI companies’ U.S. activity; not an ex-AI total.",
-      "hires": "Arithmetic mean of 12 monthly total nonfarm hires rates. Measures worker inflows, not employment, net job creation or AI-replaced jobs.",
       "productivity": "Four-quarter mean of nonfarm business real output per hour. Technology, capital, organization and workforce composition can all contribute; not AI alone.",
-      "retailProfit": "Four-quarter mean of retail before-tax profits with IVA, without CCAdj, at annual rates. A nominal gain need not be a price-adjusted gain.",
-      "retailHires": "Arithmetic mean of 12 monthly, seasonally adjusted retail hires rates.",
-      "transportProfit": "Four-quarter mean of transportation and warehousing before-tax profits with IVA, without CCAdj. Excludes utilities; no broader hires series is presented as a match.",
       "usRealProfit": "Deflate each quarter’s aggregate profit by the GDP deflator, take a four-quarter mean, then rebase. An approximation, not an official real-profit series.",
       "output": "Four-quarter mean of nonfarm business real output.",
       "hours": "Four-quarter mean of nonfarm business total hours."
     },
     "companyRows": "<tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1045810\" target=\"_blank\" rel=\"noopener\">NVIDIA</a><small>Chips / accelerated computing</small></th><td>4.2</td><td>197.6</td><td>+4,577.5%</td><td>2026-07-26</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=789019\" target=\"_blank\" rel=\"noopener\">Microsoft</a><small>Cloud / enterprise software</small></th><td>82.8</td><td>155.2</td><td>+87.5%</td><td>2026-06-30</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1652044\" target=\"_blank\" rel=\"noopener\">Alphabet</a><small>Cloud / models and advertising</small></th><td>74.8</td><td>147.6</td><td>+97.3%</td><td>2026-06-30</td></tr><tr><th scope=\"row\"><a href=\"https://www.sec.gov/edgar/browse/?CIK=1018724\" target=\"_blank\" rel=\"noopener\">Amazon</a><small>AWS cloud / e-commerce</small></th><td>12.2</td><td>93.7</td><td>+665.1%</td><td>2026-06-30</td></tr>",
-    "readingText": "<li><span class=\"evidence-label\">OBSERVED</span><strong>AI supply-chain sample profits grow faster.</strong>Combined TTM operating income rose from $174.1bn to $594.2bn, up 241.2%. U.S. overall four-quarter mean profits rose 30.4%, or about 17.3% after a broad price adjustment. These are within-scope trends, not a U.S. contribution calculation or a measure of pure-AI earnings.</li><li><span class=\"evidence-label\">OBSERVED</span><strong>Aggregate profits did not contract, but hiring weakened.</strong>The 12-month mean U.S. hires rate fell from 4.20% to 3.30%, down 0.90 percentage points (21.4% relatively). This weakens an explanation based on a nationwide profit contraction, although aggregate gains can conceal distress at some firms.</li><li><span class=\"evidence-label\">PARTIAL SUPPORT</span><strong>Retail shows small nominal profit gains and less hiring.</strong>Four-quarter mean retail profits rose 7.3%, from $291.6bn to $312.8bn, while the mean hires rate fell from 5.05% to 3.88%, down 23.1% relatively. This is compatible with some efficiency mechanisms, but broad prices rose about 11.1%; real-profit pressure is not ruled out.</li><li><span class=\"evidence-label\">COUNTEREXAMPLE</span><strong>Transportation profits are still contracting.</strong>Four-quarter mean transportation and warehousing profits fell 24.5%, from $104.3bn to $78.7bn. AI infrastructure leaders cannot establish uniform gains elsewhere. Retail and transportation are two industry observations, not an exact U.S. ex-AI residual.</li><li><span class=\"evidence-label\">EFFICIENCY SIGNAL</span><strong>Output grows much faster than hours.</strong>Nonfarm business four-quarter mean real output rose 10.4%, hours rose only 1.4%, and output per hour rose 8.8%. Efficiency has improved, but capital deepening, conventional automation, organization and worker composition may also contribute.</li><li><span class=\"evidence-label\">MICRO EVIDENCE</span><strong>AI can improve job efficiency without necessarily eliminating jobs.</strong><a href=\"https://www.nber.org/papers/w31161\" target=\"_blank\" rel=\"noopener\">Generative AI at Work (2023 working-paper version)</a> studied 5,179 support agents and found that introducing an AI assistant raised issues resolved per hour by 14% on average and improved retention. This supports an AI efficiency mechanism, not an estimate of AI’s contribution to national hiring or profit changes.</li><li><span class=\"evidence-label\">NOT YET IDENTIFIED</span><strong>Less hiring cannot be counted as AI replacement.</strong>The evidence shows aggregate profit growth, weaker hiring and higher efficiency together; it does not identify AI as the main cause. Testing replacement needs firm- or job-level adoption timing, hiring, hours, output and pay, with controls for demand, interest rates and post-pandemic normalization.</li>"
+    "readingText": "<li><span class=\"evidence-label\">OBSERVED</span><strong>AI supply-chain sample profits grow faster.</strong>Combined TTM operating income rose from $174.1bn to $594.2bn, up 241.2%. U.S. overall four-quarter mean profits rose 30.4%, or about 17.3% after a broad price adjustment. These are within-scope trends, not a U.S. contribution calculation or a measure of pure-AI earnings.</li><li><span class=\"evidence-label\">EFFICIENCY SIGNAL</span><strong>Output grows much faster than hours.</strong>Nonfarm business four-quarter mean real output rose 10.4%, hours rose only 1.4%, and output per hour rose 8.8%. Efficiency has improved, but capital deepening, conventional automation, organization and worker composition may also contribute.</li><li><span class=\"evidence-label\">MICRO EVIDENCE</span><strong>AI can improve job efficiency without necessarily eliminating jobs.</strong><a href=\"https://www.nber.org/papers/w31161\" target=\"_blank\" rel=\"noopener\">Generative AI at Work (2023 working-paper version)</a> studied 5,179 support agents and found that introducing an AI assistant raised issues resolved per hour by 14% on average and improved retention. This supports an AI efficiency mechanism, not an estimate of AI’s contribution to aggregate profit changes.</li><li><span class=\"evidence-label\">NOT YET IDENTIFIED</span><strong>Higher profits and efficiency do not isolate an AI effect.</strong>Aggregate profits and productivity have risen, but individual firms may diverge. Identifying AI’s contribution requires firm-level adoption timing, output, hours, costs and appropriate controls for demand, rates and capital investment.</li>"
   }
 };
-
 const overviewValues = Object.fromEntries(Object.entries(raw).map(([key, values]) => [key, values.map(value => value / values[0] * 100)]));
-const pageConfig = { documentTitle: { zh: "企业｜AI 盈利、招聘与提效", en: "Business | AI, profits and hiring" }, overviews: [
+const pageConfig = { documentTitle: { zh: "企业｜AI 盈利与效率", en: "Business | AI profits and efficiency" }, overviews: [
 { chartId: "overviewChart", legendId: "mainLegend", keys: ["aiProfit", "usProfit", "usRealProfit"], ariaKey: "overviewAria", options: { labels: quarters, values: overviewValues, yMin: 80, yMax: 360, reference: 100, large: true, tickStep: 2 } },
-{ chartId: "macroChart", legendId: "macroLegend", keys: ["usProfit", "hires", "productivity"], ariaKey: "macroAria", options: { labels: quarters, values: overviewValues, yMin: 70, yMax: 140, reference: 100, large: true, tickStep: 2 } },
-{ chartId: "industryChart", legendId: "industryLegend", keys: ["retailProfit", "retailHires", "transportProfit"], ariaKey: "industryAria", options: { labels: quarters, values: overviewValues, yMin: 60, yMax: 120, reference: 100, large: true, tickStep: 2 } },
 { chartId: "efficiencyChart", legendId: "efficiencyLegend", keys: ["output", "hours", "productivity"], ariaKey: "efficiencyAria", options: { labels: quarters, values: overviewValues, yMin: 95, yMax: 115, reference: 100, large: true, tickStep: 2 } },
 ] };

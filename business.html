@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="比较 AI 产业链公司与美国整体盈利，结合其它行业、招聘和生产率数据检验 AI 替代与提效的解释。">
+  <meta name="description" content="比较 AI 产业链公司与美国整体盈利，结合实际产出、工时和生产率观察效率变化。">
   <meta name="color-scheme" content="light dark">
-  <title>企业｜AI 时代的数据观察</title>
+  <title>企业｜AI 盈利与效率</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2309141f'/%3E%3Cpath d='M11 43l12-13 10 7 20-22' fill='none' stroke='%235eead4' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='53' cy='15' r='5' fill='%23ffb454'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=79b4de9bbfdf">
+  <link rel="stylesheet" href="styles.css?v=6e21b7a8ffc6">
 </head>
 <body>
   <div class="ambient ambient-a" aria-hidden="true"></div>
@@ -33,53 +33,37 @@
 
   <main id="top" class="business-main">
     <section class="intro" aria-labelledby="pageTitle">
-      <div class="eyebrow"><span class="pulse-dot"></span><span data-i18n="eyebrow">盈利 × 招聘 × 效率 · 2022 Q4—2026 Q2</span></div>
+      <div class="eyebrow"><span class="pulse-dot"></span><span data-i18n="eyebrow">盈利 × 效率 · 2022 Q4—2026 Q2</span></div>
       <div class="intro-grid">
         <div>
-          <h1 id="pageTitle" data-i18n="title">整体利润增，<br><em>招聘仍走弱。</em></h1>
+          <h1 id="pageTitle" data-i18n="title">利润增长，<br><em>效率同步提升。</em></h1>
         </div>
         <div class="intro-copy">
-          <p data-i18n="dek">AI 产业链样本盈利增幅领先，但其它行业表现分化，尚不能把招聘减弱统一归因为 AI 替代。</p>
+          <p data-i18n="dek">AI 产业链样本盈利增幅领先，美国整体利润与生产率也高于起点。</p>
         </div>
       </div>
     </section>
 
     <section class="overview-panel" aria-labelledby="overviewChartTitle">
-      <div class="panel-head"><div><span class="section-no">01 / 10</span><h2 data-i18n="overviewTitle" id="overviewChartTitle">AI 产业链样本与美国整体</h2></div><p data-i18n="overviewHint">比较各自起点以来的变化，不把全球公司利润从美国总量中相减</p></div>
+      <div class="panel-head"><div><span class="section-no">01 / 05</span><h2 data-i18n="overviewTitle" id="overviewChartTitle">AI 产业链样本与美国整体</h2></div><p data-i18n="overviewHint">比较各自起点以来的变化，不把全球公司利润从美国总量中相减</p></div>
       <div class="legend" id="mainLegend"></div>
       <div class="chart chart-large" id="overviewChart" role="img" aria-label="AI产业链样本经营利润与美国境内企业利润的起点归一化趋势"></div>
       <div class="source-row"><span data-i18n="unit">指数：2022 Q4 = 100 · 利润采用近一年窗口</span><a data-i18n="source" href="https://fred.stlouisfed.org/series/A445RC1Q027SBEA" target="_blank" rel="noopener">来源：SEC 财报、BEA / FRED</a></div>
       <p data-i18n="scopeNote" class="method-note">样本为四家公司的全球 GAAP 经营利润；美国整体为境内公司制企业税前利润（含 IVA / CCAdj），且包含样本在美活动。两者口径不同，只作增长趋势参照。</p>
     </section>
 
-    <section class="overview-panel sample-panel" aria-labelledby="sampleTitle">
-      <div class="panel-head"><div><span class="section-no">SAMPLE / 04 COMPANIES</span><h2 data-i18n="sampleTitle" id="sampleTitle">样本由谁组成</h2></div><p data-i18n="sampleHint">固定四家公司：芯片与云平台；不是“纯 AI 利润”组合</p></div>
+    <details class="overview-panel sample-panel">
+      <summary class="panel-head"><div><span class="section-no">SAMPLE / 04 COMPANIES</span><h2 data-i18n="sampleTitle" id="sampleTitle">样本由谁组成</h2></div><p data-i18n="sampleHint">固定四家公司：芯片与云平台；不是“纯 AI 利润”组合</p><span class="sample-toggle" aria-hidden="true"></span></summary>
       <p class="method-note" data-i18n="companyUnit">单位：十亿美元；TTM 为近四个财季之和。样本采用总额加权，不是四家公司增幅的简单平均。</p>
       <div class="table-scroll"><table class="company-table"><caption class="visually-hidden" data-i18n="sampleTitle">样本由谁组成</caption>
         <thead><tr><th data-i18n="companyHead" scope="col">公司 / 产业链角色</th><th data-i18n="baseHead" scope="col">起点 TTM 经营利润</th><th data-i18n="latestHead" scope="col">最新 TTM 经营利润</th><th data-i18n="changeHead" scope="col">较起点</th><th data-i18n="periodHead" scope="col">最新财季结束日</th></tr></thead>
         <tbody data-i18n="companyRows"><tr><th scope="row"><a href="https://www.sec.gov/edgar/browse/?CIK=1045810" target="_blank" rel="noopener">NVIDIA</a><small>芯片 / 加速计算</small></th><td>4.2</td><td>197.6</td><td>+4,577.5%</td><td>2026-07-26</td></tr><tr><th scope="row"><a href="https://www.sec.gov/edgar/browse/?CIK=789019" target="_blank" rel="noopener">Microsoft</a><small>云平台 / 企业软件</small></th><td>82.8</td><td>155.2</td><td>+87.5%</td><td>2026-06-30</td></tr><tr><th scope="row"><a href="https://www.sec.gov/edgar/browse/?CIK=1652044" target="_blank" rel="noopener">Alphabet</a><small>云平台 / 模型与广告</small></th><td>74.8</td><td>147.6</td><td>+97.3%</td><td>2026-06-30</td></tr><tr><th scope="row"><a href="https://www.sec.gov/edgar/browse/?CIK=1018724" target="_blank" rel="noopener">Amazon</a><small>AWS 云平台 / 电商</small></th><td>12.2</td><td>93.7</td><td>+665.1%</td><td>2026-06-30</td></tr></tbody>
       </table></div>
       <p data-i18n="companyPeriod" class="method-note">NVIDIA 财季按最近自然季度归组，通常滞后约一个月；其 2026 Q2 组包含截至 7 月 26 日的财季。其他三家截至 6 月 30 日。</p>
-    </section>
-
-    <section class="overview-panel" aria-labelledby="macroChartTitle">
-      <div class="panel-head"><div><span class="section-no">02 / 10</span><h2 data-i18n="macroTitle" id="macroChartTitle">整体利润增长，招聘并未同步</h2></div><p data-i18n="macroHint">在同一时间窗内比较利润、招聘率和每小时产出</p></div>
-      <div class="legend" id="macroLegend"></div>
-      <div class="chart chart-large" id="macroChart" role="img" aria-label="美国整体利润、雇佣率与生产率的趋势比较"></div>
-      <div class="source-row"><span data-i18n="macroUnit">指数：2022 Q4 = 100 · 利润、生产率为近四季均值，招聘为近 12 个月均值</span><a data-i18n="macroSource" href="https://fred.stlouisfed.org/series/JTSHIR" target="_blank" rel="noopener">来源：BEA、BLS / FRED</a></div>
-      <p class="method-note" data-i18n="macroNote">利润覆盖境内公司制企业，雇佣率覆盖全部非农雇主，生产率为非农商业部门；它们是宏观同期趋势，不是同一批企业的因果比较。</p>
-    </section>
-
-    <section class="overview-panel" aria-labelledby="industryChartTitle">
-      <div class="panel-head"><div><span class="section-no">03 / 10</span><h2 data-i18n="industryTitle" id="industryChartTitle">其它行业没有一致的盈利改善</h2></div><p data-i18n="industryHint">观察零售与运输仓储，避免仅从科技龙头推断全美</p></div>
-      <div class="legend" id="industryLegend"></div>
-      <div class="chart chart-large" id="industryChart" role="img" aria-label="零售利润、零售招聘和运输仓储利润的趋势比较"></div>
-      <div class="source-row"><span data-i18n="industryUnit">指数：2022 Q4 = 100 · 行业是观察样本，不是严格“剔除 AI”后的其余美国企业</span><a data-i18n="industrySource" href="https://fred.stlouisfed.org/series/N415RC1Q027SBEA" target="_blank" rel="noopener">来源：BEA 行业利润、BLS 零售招聘 / FRED</a></div>
-      <p data-i18n="industryNote" class="method-note">零售包含电商等业务，与亚马逊集团存在业务交叉；运输仓储也可能使用 AI。行业利润含 IVA、不含 CCAdj，与整体利润定义有差异。不能将这些行业当作“未使用 AI”的对照组。</p>
-    </section>
+    </details>
 
     <section class="overview-panel" aria-labelledby="efficiencyChartTitle">
-      <div class="panel-head"><div><span class="section-no">04 / 10</span><h2 data-i18n="efficiencyTitle" id="efficiencyChartTitle">实际产出跑赢工时，效率确有提升</h2></div><p data-i18n="efficiencyHint">每小时产出上升是提效线索，不是 AI 贡献的直接测量</p></div>
+      <div class="panel-head"><div><span class="section-no">02 / 05</span><h2 data-i18n="efficiencyTitle" id="efficiencyChartTitle">实际产出跑赢工时，效率确有提升</h2></div><p data-i18n="efficiencyHint">每小时产出上升是提效线索，不是 AI 贡献的直接测量</p></div>
       <div class="legend" id="efficiencyLegend"></div>
       <div class="chart chart-large" id="efficiencyChart" role="img" aria-label="非农商业实际产出、劳动工时与每小时产出的趋势比较"></div>
       <div class="source-row"><span data-i18n="efficiencyUnit">指数：2022 Q4 = 100 · 非农商业部门 · 近四季均值</span><a data-i18n="efficiencySource" href="https://fred.stlouisfed.org/series/OPHNFB" target="_blank" rel="noopener">来源：BLS 劳动生产率、实际产出与工时 / FRED</a></div>
@@ -91,16 +75,16 @@
     </section>
     <section class="reading" aria-labelledby="readingTitle">
       <h2 data-i18n="readingKicker" class="reading-kicker" id="readingTitle">从数字到信号</h2>
-      <ul data-i18n="readingText" class="reading-list"><li><span class="evidence-label">已观察到</span><strong>AI 产业链样本盈利增长更快。</strong>四家公司 TTM 经营利润合计从 1,741 亿增至 5,942 亿美元，增长 241.2%；美国整体近四季平均利润增长 30.4%，价格调整后约增 17.3%。这是各自口径内的趋势比较，不代表样本贡献了多少美国利润，也不是纯 AI 收入或利润的测量。</li><li><span class="evidence-label">已观察到</span><strong>整体利润没有收缩，招聘率却下降。</strong>同期全美近 12 个月平均雇佣率从 4.20% 降至 3.30%，下降 0.90 个百分点（相对下降 21.4%）。利润与招聘背离，削弱了“全国性利润收缩导致少招人”的解释；但总量增长仍可能掩盖部分企业经营恶化。</li><li><span class="evidence-label">局部支持</span><strong>零售业出现利润小涨、招聘减少。</strong>零售利润近四季均值从 2,916 亿增至 3,128 亿美元，名义增长 7.3%；平均雇佣率从 5.05% 降至 3.88%，相对下降 23.1%。这符合部分提效机制，但同期整体价格水平上升约 11.1%，不能据此排除实际利润压力。</li><li><span class="evidence-label">行业反例</span><strong>运输仓储业利润仍在收缩。</strong>其利润近四季均值下降 24.5%，从 1,043 亿降至 787 亿美元。AI 基建公司的高增长不能外推为其它行业已普遍受益；零售与运输也只是两个行业观察，不是严格剔除 AI 的全美剩余企业。</li><li><span class="evidence-label">提效线索</span><strong>产出增长明显快于工时。</strong>非农商业实际产出近四季均值增长 10.4%，总工时仅增 1.4%，每小时实际产出增长 8.8%。这支持生产效率提高的现象，但资本深化、传统自动化、组织调整和人员结构也可能解释一部分变化。</li><li><span class="evidence-label">微观实证</span><strong>AI 能提高岗位效率，不等于必然减少岗位。</strong><a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">Generative AI at Work（2023 年工作论文）</a>研究了 5,179 名客服人员，发现引入生成式 AI 助手后，每小时解决问题数量平均提高 14%，员工留任率也改善。这支持 AI 确有提效机制，但不是全美招聘下降或利润增长中 AI 贡献的估计。</li><li><span class="evidence-label">尚待归因</span><strong>不能把少招人直接换算成 AI 替代。</strong>现有证据支持“整体利润增长、招聘转弱、效率提高同时存在”，尚不足以确认 AI 是主因。识别替代与提效，需要企业或岗位层面的 AI 采用时间、招聘和工时、产出及工资数据，并控制需求、利率和疫情后招聘正常化。</li></ul>
+      <ul data-i18n="readingText" class="reading-list"><li><span class="evidence-label">已观察到</span><strong>AI 产业链样本盈利增长更快。</strong>四家公司 TTM 经营利润合计从 1,741 亿增至 5,942 亿美元，增长 241.2%；美国整体近四季平均利润增长 30.4%，价格调整后约增 17.3%。这是各自口径内的趋势比较，不代表样本贡献了多少美国利润，也不是纯 AI 收入或利润的测量。</li><li><span class="evidence-label">提效线索</span><strong>产出增长明显快于工时。</strong>非农商业实际产出近四季均值增长 10.4%，总工时仅增 1.4%，每小时实际产出增长 8.8%。这支持生产效率提高的现象，但资本深化、传统自动化、组织调整和人员结构也可能解释一部分变化。</li><li><span class="evidence-label">微观实证</span><strong>AI 能提高岗位效率，不等于必然减少岗位。</strong><a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">Generative AI at Work（2023 年工作论文）</a>研究了 5,179 名客服人员，发现引入生成式 AI 助手后，每小时解决问题数量平均提高 14%，员工留任率也改善。这支持 AI 确有提效机制，但不是宏观利润增长中 AI 贡献的估计。</li><li><span class="evidence-label">尚待归因</span><strong>利润与效率提升，尚不能单独归因于 AI。</strong>整体利润和生产率增长是已观察到的现象，但不同企业可能表现分化；识别 AI 的贡献仍需企业层面的采用时间、产出、工时、成本与合适对照，并控制需求、利率及资本投入变化。</li></ul>
     </section>
   </main>
   <footer>
-    <div><span class="footer-mark">AI/P</span><span data-i18n="footerText">美国企业盈利与招聘观察</span></div>
+    <div><span class="footer-mark">AI/P</span><span data-i18n="footerText">美国企业盈利与效率观察</span></div>
     <p data-i18n="footerNote">静态数据核查：2026.10.24 · 同期比较截至 2026 Q2 · 结论不作 AI 因果估计</p>
   </footer>
 
   <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
-  <script src="business.js?v=ea446032b87a"></script>
+  <script src="business.js?v=fdf9cf413669"></script>
   <script src="charts.js?v=48e4c761e6e1"></script>
 </body>
 </html>

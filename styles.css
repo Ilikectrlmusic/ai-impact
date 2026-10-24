@@ -137,6 +137,14 @@ h1 em { font-style: normal; color: var(--teal); }
 .reference-line { stroke: var(--faint); stroke-width: 1; stroke-dasharray: 5 6; vector-effect: non-scaling-stroke; opacity: .55; }
 .method-note { margin: 18px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.8; }
 .sample-panel > .method-note:first-of-type { margin: 0 0 18px; }
+.sample-panel > summary { cursor: pointer; list-style: none; margin-bottom: 0; align-items: center; }
+.sample-panel > summary::-webkit-details-marker { display: none; }
+.sample-panel[open] > summary { margin-bottom: 28px; }
+.sample-panel > summary:focus-visible { outline: 2px solid var(--teal); outline-offset: 8px; }
+.sample-toggle { flex: 0 0 26px; width: 26px; height: 26px; position: relative; color: var(--teal); margin-left: auto; }
+.sample-toggle::before, .sample-toggle::after { content: ""; position: absolute; background: currentColor; left: 5px; top: 12px; width: 16px; height: 2px; }
+.sample-toggle::after { transform: rotate(90deg); }
+.sample-panel[open] .sample-toggle::after { transform: rotate(0); }
 .table-scroll { overflow-x: auto; max-width: 100%; }
 .company-table { border-collapse: collapse; width: 100%; min-width: 740px; font-size: .84rem; }
 .company-table th, .company-table td { border-bottom: 1px solid var(--line); padding: 18px 14px; text-align: right; vertical-align: top; }
