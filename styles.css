@@ -89,10 +89,7 @@ main { width: min(1400px, calc(100% - 64px)); margin: 0 auto; }
 h1 { margin: 0; font-size: clamp(3.1rem, 7.2vw, 7.6rem); line-height: .91; letter-spacing: -.065em; font-weight: 500; }
 h1 em { font-style: normal; color: var(--teal); }
 .intro-copy { border-left: 1px solid var(--line); padding-left: 32px; }
-.intro-copy > p { font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin: 0 0 32px; }
-.thesis { border-top: 1px solid var(--line); padding-top: 20px; }
-.thesis span { display: block; color: var(--orange); font: 500 .7rem/1 DM Mono, monospace; letter-spacing: .12em; margin-bottom: 11px; }
-.thesis strong { font-size: 1.02rem; line-height: 1.6; font-weight: 600; }
+.intro-copy > p { font-size: 1.05rem; line-height: 1.8; color: var(--muted); margin: 0; }
 
 .overview-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); backdrop-filter: blur(20px); padding: clamp(24px, 3vw, 46px); }
 .overview-panel + .overview-panel { margin-top: 24px; }
@@ -122,6 +119,7 @@ h1 em { font-style: normal; color: var(--teal); }
 .series-dot { fill: var(--surface-solid); stroke: var(--series-color); stroke-width: 2; vector-effect: non-scaling-stroke; opacity: 0; transition: opacity .1s; }
 .hover-line { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 3 4; vector-effect: non-scaling-stroke; opacity: .35; }
 .chart-hit { fill: transparent; cursor: crosshair; }
+.source-row a { color: inherit; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .source-row { display: flex; justify-content: space-between; gap: 20px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--faint); font: 400 .65rem/1.5 DM Mono, monospace; letter-spacing: .03em; }
 .tooltip { position: fixed; z-index: 20; pointer-events: none; opacity: 0; transform: translate(12px, -50%); background: var(--ink); color: var(--bg); padding: 12px 14px; border-radius: 3px; box-shadow: 0 12px 35px rgba(0,0,0,.25); min-width: 150px; transition: opacity .08s; font-size: .75rem; }
 .tooltip.is-visible { opacity: 1; }
@@ -131,11 +129,13 @@ h1 em { font-style: normal; color: var(--teal); }
 .tooltip-swatch { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
 .tooltip strong { font-family: DM Mono, monospace; }
 
-.reading { display: grid; grid-template-columns: .45fr 1.55fr; gap: 40px; padding: clamp(76px, 10vw, 150px) max(0px, 6vw); align-items: start; }
-.reading-kicker { color: var(--orange); font: 500 .72rem/1 DM Mono, monospace; letter-spacing: .12em; text-transform: uppercase; padding-top: 12px; }
-.reading p { margin: 0; font-size: clamp(1.65rem, 3.25vw, 3.35rem); letter-spacing: -.045em; line-height: 1.32; font-weight: 500; }
-.reading strong { color: var(--teal); font-weight: 600; }
-.details { padding-bottom: 100px; }
+.reading { display: grid; grid-template-columns: .35fr 1.65fr; gap: 40px; border-top: 1px solid var(--line); padding: 52px 0 78px; align-items: start; }
+.reading-kicker { margin: 0; color: var(--orange); font: 500 .85rem/1.6 Manrope, "Noto Sans SC", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.reading-list { margin: 0; padding-left: 1.25em; display: grid; gap: 22px; max-width: 900px; }
+.reading-list li { padding-left: 6px; color: var(--muted); font-size: 1rem; line-height: 1.9; }
+.reading-list li::marker { color: var(--teal); }
+.reading strong { color: var(--ink); font-weight: 600; display: block; font-size: 1.12rem; margin-bottom: 4px; }
+.details { padding: 64px 0 72px; }
 .details-head { display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 30px; margin-bottom: 24px; }
 .eyebrow-line { width: 44px; height: 1px; background: var(--teal); }
 .chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
@@ -152,10 +152,6 @@ h1 em { font-style: normal; color: var(--teal); }
 .card-change b { color: var(--series-color); font: 500 .72rem/1 DM Mono, monospace; }
 .mini-chart { height: 250px; }
 .card-note { border-top: 1px solid var(--line); padding-top: 16px; margin: 5px 0 0; color: var(--muted); font-size: .83rem; line-height: 1.65; }
-.caveat { display: grid; grid-template-columns: .35fr 1.65fr; gap: 40px; border-top: 1px solid var(--line); padding: 52px 0 78px; }
-.caveat-index { color: var(--orange); font: 500 .72rem/1 DM Mono, monospace; letter-spacing: .14em; }
-.caveat h2 { margin: 0 0 16px; font-size: 1.5rem; }
-.caveat p { max-width: 850px; margin: 0; color: var(--muted); font-size: 1rem; line-height: 1.8; }
 footer { width: min(1400px, calc(100% - 64px)); margin: 0 auto; border-top: 1px solid var(--line); min-height: 140px; display: flex; justify-content: space-between; align-items: center; gap: 20px; color: var(--muted); font-size: .76rem; }
 footer > div { display: flex; align-items: center; gap: 14px; }
 .footer-mark { font: 600 .8rem/1 DM Mono, monospace; border: 1px solid var(--line); padding: 10px 8px; color: var(--teal); }
@@ -168,7 +164,7 @@ footer p { text-align: right; }
   .intro-grid { grid-template-columns: 1fr; gap: 40px; }
   .intro-copy { max-width: 650px; }
   .chart-grid { grid-template-columns: 1fr; }
-  .reading { grid-template-columns: 1fr; gap: 22px; padding-left: 0; padding-right: 0; }
+  .reading { grid-template-columns: 1fr; gap: 22px; }
 }
 @media (max-width: 620px) {
   .topbar, main, footer { width: min(100% - 24px, 1400px); }
@@ -183,12 +179,12 @@ footer p { text-align: right; }
   .source-row { flex-direction: column; gap: 6px; }
   .legend { gap: 12px 18px; }
   .legend-item { width: calc(50% - 9px); justify-content: flex-start; }
-  .legend-item strong { margin-left: auto; }
-  .reading p { font-size: 1.7rem; }
+  .legend-name { white-space: normal; min-width: 0; overflow-wrap: anywhere; }
+  .legend-item strong { margin-left: auto; flex-shrink: 0; }
+  .graduate-overview .legend-item { width: 100%; }
   .chart-card { padding: 26px 16px; }
   .card-head { align-items: flex-start; }
   .card-stat strong { font-size: 1.65rem; }
-  .caveat { grid-template-columns: 1fr; gap: 20px; }
   footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 28px 0; }
   footer p { text-align: left; margin: 0; }
 }
