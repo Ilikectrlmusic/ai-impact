@@ -57,7 +57,7 @@ function renderLegend(containerId, metaList, hiddenSet, chartId, chartOptions) {
 }
 
 function buildCards() {
-  document.getElementById("detailGrid").innerHTML = allSeriesMeta.map((s,i) => `
+  document.getElementById("detailGrid").innerHTML = allSeriesMeta.filter(s => s.card !== false).map(s => `
     <article class="chart-card" style="--series-color:${s.color}">
       <div class="card-head"><div><div class="card-title"><i></i><h3>${copy[lang][s.key]}</h3></div><div class="series-code">${s.source} · ${s.code}</div></div>
       <div class="card-stat"><strong>${formatValue(s.key, latestValue(raw[s.key]))}</strong>${copy[lang].units?.[s.key] ? `<span class="card-unit">${copy[lang].units[s.key]}</span>` : ""}<span>${copy[lang].latest} · ${s.date}</span><span class="card-change">${copy[lang].sinceBaseline} <b>${formatChange(s.key)}</b></span></div></div>
@@ -95,6 +95,9 @@ function renderChart(container, metaList, opts={}) {
     svg.appendChild(svgEl("line",{x1:margin.left,y1:yy,x2:width-margin.right,y2:yy,class:"grid-line"}));
     const tx=svgEl("text",{x:margin.left-8,y:yy+3,"text-anchor":"end"}); tx.textContent=val.toFixed(yMax-yMin<=1?1:(Number.isInteger(val)?0:1)); svg.appendChild(tx);
     if(opts.dual){ const rightVal=opts.right.yMax-(t/4)*(opts.right.yMax-opts.right.yMin), rx=svgEl("text",{x:width-margin.right+8,y:yy+3,"text-anchor":"start",class:"axis-right"}); rx.textContent=rightVal.toFixed(1); svg.appendChild(rx); }
+  }
+  if (opts.reference != null) {
+    svg.appendChild(svgEl("line", { x1: margin.left, x2: width-margin.right, y1: y(opts.reference), y2: y(opts.reference), class: "reference-line" }));
   }
   const tickStep = opts.tickStep || (labels.length>20?(mobile?12:6):(mobile?4:2));
   const guard = labels.length>20?(mobile?6:4):(mobile?3:2);
@@ -139,7 +142,7 @@ function renderAll() {
     renderChart(document.getElementById(chart.chartId), meta.filter(s => !hidden.has(s.key)), chart.options);
   });
   buildCards();
-  allSeriesMeta.forEach(s => {
+  allSeriesMeta.filter(s => s.card !== false).forEach(s => {
     const labels = s.labels || (s.group === "graduate" ? quarters : months);
     renderChart(document.getElementById(`chart-${s.key}`), [s], { ...niceRange(s), labels });
   });

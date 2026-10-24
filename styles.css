@@ -134,10 +134,27 @@ h1 em { font-style: normal; color: var(--teal); }
 .tooltip-swatch { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
 .tooltip strong { font-family: DM Mono, monospace; }
 
+.reference-line { stroke: var(--faint); stroke-width: 1; stroke-dasharray: 5 6; vector-effect: non-scaling-stroke; opacity: .55; }
+.method-note { margin: 18px 0 0; color: var(--muted); font-size: .8rem; line-height: 1.8; }
+.sample-panel > .method-note:first-of-type { margin: 0 0 18px; }
+.table-scroll { overflow-x: auto; max-width: 100%; }
+.company-table { border-collapse: collapse; width: 100%; min-width: 740px; font-size: .84rem; }
+.company-table th, .company-table td { border-bottom: 1px solid var(--line); padding: 18px 14px; text-align: right; vertical-align: top; }
+.company-table thead th { color: var(--muted); font-weight: 500; font-size: .75rem; }
+.company-table th:first-child { text-align: left; padding-left: 0; }
+.company-table tbody th { font-weight: 600; }
+.company-table a { color: var(--ink); text-underline-offset: 4px; text-decoration-color: var(--line); }
+.company-table a:hover { color: var(--teal); }
+.company-table small { display: block; margin-top: 8px; color: var(--muted); font-weight: 400; line-height: 1.6; }
+.company-table td { font-family: DM Mono, monospace; white-space: nowrap; }
+.evidence-label { display: inline-block; color: var(--orange); font-size: .7rem; letter-spacing: .07em; margin-bottom: 4px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
 .reading { display: grid; grid-template-columns: .35fr 1.65fr; gap: 40px; border-top: 1px solid var(--line); padding: 52px 0 78px; align-items: start; }
 .reading-kicker { margin: 0; color: var(--orange); font: 500 .85rem/1.6 Manrope, "Noto Sans SC", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 .reading-list { margin: 0; padding-left: 1.25em; display: grid; gap: 22px; max-width: 900px; }
 .reading-list li { padding-left: 6px; color: var(--muted); font-size: 1rem; line-height: 1.9; }
+.reading-list a { color: var(--ink); text-decoration-color: var(--teal); text-underline-offset: 4px; }
 .reading-list li::marker { color: var(--teal); }
 .reading strong { color: var(--ink); font-weight: 600; display: block; font-size: 1.12rem; margin-bottom: 4px; }
 .details { padding: 64px 0 72px; }
